@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const nodemon = require('gulp-nodemon');
 const browserSync = require('browser-sync');
-const config = require('../packages').gulp;
+const config = require('../package').gulp;
 
 const serve = () => {
   let started = false;

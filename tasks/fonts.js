@@ -2,8 +2,8 @@ const gulp = require('gulp');
 const clean = require('gulp-clean');
 const eventStream = require('event-stream');
 const browserSync = require('browser-sync');
-const bowerFile = require('main-bower-file');
-const config = require('../packages').gulp;
+const bowerFile = require('main-bower-files');
+const config = require('../package').gulp;
 
 const localFonts = () => {
   return gulp.src(`${config.src.fonts}${config.selectors.fonts}`);

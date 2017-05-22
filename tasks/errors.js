@@ -4,9 +4,9 @@ const plumber = require('gulp-plumber');
 
 const onError = function(err) {
   notify.onError({
-    title: 'Something Went Wrong',
+    title: 'Something went wrong!',
     subtitle: 'Plugin: <%= error.plugin %>',
-    message: 'Error: <%error.message%>',
+    message: 'Error: <%= error.message %>',
     sound: 'Beep'
   })(err);
   this.emit('end');
@@ -14,8 +14,8 @@ const onError = function(err) {
 
 const gulpSrc = gulp.src;
 
-gulp.src = function () {
+gulp.src = function() {
   return gulpSrc.apply(gulp, arguments)
-    .pipe(plumber({errorHandler: onError})
+    .pipe(plumber({ errorHandler: onError })
   );
 };

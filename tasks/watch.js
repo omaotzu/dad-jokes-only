@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const config = require('../packages').gulp;
+const config = require('../package').gulp;
 
 const watch = () => {
   gulp.watch([
