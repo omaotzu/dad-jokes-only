@@ -2,16 +2,16 @@ angular
   .module('dadJokesOnly')
   .config(Router);
 
-Router.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
+Router.$inject = ['$urlRouterProvider', '$locationProvider', '$stateProvider'];
+function Router($urlRouterProvider, $locationProvider, $stateProvider) {
 
-function Router($locationProvider, $stateProvider, $urlRouterProvider){
   $locationProvider.html5Mode(true);
 
   $stateProvider
-  .state('home', {
-    url: '/',
-    templateUrl: 'js/views/statics/home.html'
-  });
+    .state('home', {
+      url: '/',
+      templateUrl: 'js/views/auth/home.html'
+    });
 
   $urlRouterProvider.otherwise('/');
 }
