@@ -2,11 +2,12 @@ angular
   .module('dadJokesOnly')
   .controller('MainCtrl', MainCtrl);
 
-MainCtrl.$inject = ['$rootScope', '$state', '$auth', 'User'];
-function MainCtrl($rootScope, $state, $auth, User){
+MainCtrl.$inject = ['$rootScope', '$state', '$auth'];
+function MainCtrl($rootScope, $state, $auth){
   const vm = this;
   vm.isAuthenticated = $auth.isAuthenticated;
-
+  vm.currentUserId = $auth.getPayload().userId;
+  console.log(vm.currentUserId);
 
   $rootScope.$on('error', (e, err) => {
     vm.message = err.data.message;
@@ -17,18 +18,6 @@ function MainCtrl($rootScope, $state, $auth, User){
     vm.uiRouterState = $state.current.name;
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
-
-    if($auth.getPayload()) {
-      vm.currentUserId = $auth.getPayload().userId;
-      User
-        .query()
-        .$promise
-        .then((response) => {
-          vm.user = response.find(obj => obj.id === vm.currentUserId);
-          if (!vm.user.group) vm.currentUserGroupId = null;
-          if (vm.user.group) vm.currentUserGroupId = vm.user.group.id;
-        });
-    }
   });
 
   function logout(){
