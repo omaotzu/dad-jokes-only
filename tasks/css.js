@@ -1,21 +1,21 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
+const gulp             = require('gulp');
+const sass             = require('gulp-sass');
+const autoprefixer     = require('gulp-autoprefixer');
 const stripCssComments = require('gulp-strip-css-comments');
-const minifycss = require('gulp-minify-css');
-const bowerFiles = require('main-bower-files');
-const concat = require('gulp-concat');
-const eventStream = require('event-stream');
-const order = require('gulp-order');
-const sourcemaps = require('gulp-sourcemaps');
-const rename = require('gulp-rename');
-const gulpIf = require('gulp-if');
-const browserSync = require('browser-sync');
-const config = require('../package').gulp;
+const minifycss        = require('gulp-minify-css');
+const bowerFiles       = require('main-bower-files');
+const concat           = require('gulp-concat');
+const eventStream      = require('event-stream');
+const order            = require('gulp-order');
+const sourcemaps       = require('gulp-sourcemaps');
+const rename           = require('gulp-rename');
+const gulpIf           = require('gulp-if');
+const browserSync      = require('browser-sync');
+const config           = require('../package').gulp;
 
 const fetchVendorCss = () => {
   return gulp.src(bowerFiles(config.selectors.css))
-    .pipe(stripCssComments())
+    .pipe(stripCssComments()) // Removing the sourcemaps
     .pipe(concat(config.vendor.css));
 };
 

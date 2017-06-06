@@ -1,29 +1,17 @@
-const gulp = require('gulp');
-const clean = require('gulp-clean');
-const eventStream = require('event-stream');
-const browserSync = require('browser-sync');
-const bowerFile = require('main-bower-files');
-const config = require('../package').gulp;
-
-const localFonts = () => {
-  return gulp.src(`${config.src.fonts}${config.selectors.fonts}`);
-};
-
-const vendorFonts = () => {
-  return gulp.src(bowerFile(config.selectors.fonts));
-};
+const gulp             = require('gulp');
+const clean            = require('gulp-clean');
+const eventStream      = require('event-stream');
+const browserSync      = require('browser-sync');
+const config           = require('../package').gulp;
 
 const cleanFonts = () => {
-  return gulp.src(config.dest.fonts, {read: false})
+  return gulp.src(config.dest.fonts, { read: false })
     .pipe(clean());
 };
 
 const copyFonts = () => {
-  return eventStream.merge(
-    localFonts(),
-    vendorFonts()
-  )
-  .pipe(gulp.dest(config.dest.fonts));
+  return gulp.src(`${config.src.fonts}${config.selectors.fonts}`)
+    .pipe(gulp.dest(config.dest.fonts));
 };
 
 const buildFonts = () => {

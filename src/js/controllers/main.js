@@ -17,6 +17,7 @@ function MainCtrl($rootScope, $state, $auth, User){
     vm.uiRouterState = $state.current.name;
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
+
     if($auth.getPayload()) {
       vm.currentUserId = $auth.getPayload().userId;
       User

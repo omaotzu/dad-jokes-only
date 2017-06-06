@@ -1,6 +1,6 @@
 angular
   .module('dadJokesOnly')
-  .config('Auth');
+  .config(Auth);
 
 Auth.$inject= ['$authProvider'];
 function Auth($authProvider){

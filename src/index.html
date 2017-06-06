@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html ng-app="dadJokesOnly">
-  <head>
-    <base href="/">
-    <meta charset="utf-8">
-    <title>Dad Jokes Only</title>
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body>
+<head>
+  <base href="/">
+  <title>Dad Jokes Only</title>
+  <link href="https://fonts.googleapis.com/css?family=Kalam:400,700" rel="stylesheet">
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+
+  <body  ng-controller="MainCtrl as main">
     <header>
-      <h1>Index = {{2+2}}</h1>
+      <p> Some header stuff </p>
     </header>
     <main ui-view></main>
   </body>

@@ -6,9 +6,9 @@ const browserSync      = require('browser-sync');
 const config           = require('../package').gulp;
 
 const validatePartials = () => {
-  return gulp.src(`${config.src.js}${config.selectors.js}`)
-    .pipe(htmlhint({'doctype-first': false}))
-    .pipe(htmlhint.reporter('htmlhint-stylish'));
+  return gulp.src(`${config.src.js}${config.selectors.html}`)
+  .pipe(htmlhint({'doctype-first': false}))
+  .pipe(htmlhint.reporter('htmlhint-stylish'));
 };
 
 const buildPartials = () => {

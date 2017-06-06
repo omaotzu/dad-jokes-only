@@ -6,7 +6,7 @@ const browserSync      = require('browser-sync');
 const config           = require('../package').gulp;
 
 const cleanImages = () => {
-  return gulp.src(config.dest.images, {read: false})
+  return gulp.src(config.dest.images, { read: false })
     .pipe(clean());
 };
 

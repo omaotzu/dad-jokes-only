@@ -1,4 +1,4 @@
-  {
+{
   "name": "dad-jokes-only",
   "description": "",
   "main": "server.js",
@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "angular": "^1.6.4",
-    "angular-ui-router": "^1.0.3",
     "angular-resource": "^1.6.4",
-    "satellizer": "^0.15.5"
+    "satellizer": "^0.15.5",
+    "angular-ui-router": "^1.0.3"
   }
 }

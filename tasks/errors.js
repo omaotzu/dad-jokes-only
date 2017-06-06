@@ -1,6 +1,6 @@
-const gulp = require('gulp');
-const notify = require('gulp-notify');
-const plumber = require('gulp-plumber');
+const gulp             = require('gulp');
+const notify           = require('gulp-notify');
+const plumber          = require('gulp-plumber');
 
 const onError = function(err) {
   notify.onError({
