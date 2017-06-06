@@ -7,7 +7,6 @@ function MainCtrl($rootScope, $state, $auth){
   const vm = this;
   vm.isAuthenticated = $auth.isAuthenticated;
   vm.currentUserId = $auth.getPayload().userId;
-  console.log(vm.currentUserId);
 
   $rootScope.$on('error', (e, err) => {
     vm.message = err.data.message;
