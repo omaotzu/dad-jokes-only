@@ -1,1 +1,69 @@
 <h2>Register</h2>
+
+<form name="register.registerForm" ng-submit="register.submit()" novalidate>
+  <div>
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" ng-model="register.user.username" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="register.registerForm.username.$error" ng-show="(register.registerForm.$submitted || register.registerForm.username.$touched)">
+    <p ng-message="required">Your username is required.</p>
+  </div> -->
+
+  <div>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" ng-model="register.user.email" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="register.registerForm.email.$error" ng-show="(register.registerForm.$submitted || register.registerForm.email.$touched)">
+    <p ng-message="required">Your email is required.</p>
+    <p ng-message="email">A valid email is required.</p>
+  </div> -->
+
+  <div>
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" id="firstname" ng-model="register.user.firstname" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="register.registerForm.firstname.$error" ng-show="(register.registerForm.$submitted || register.registerForm.firstname.$touched)">
+    <p ng-message="required">Your first name is required.</p>
+  </div> -->
+
+  <div>
+    <label for="lastname">Surname</label>
+    <input type="text" name="lastname" id="lastname" ng-model="register.user.lastname" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="register.registerForm.lastname.$error" ng-show="(register.registerForm.$submitted || register.registerForm.lastname.$touched)">
+    <p ng-message="required">Your surname is required.</p>
+  </div> -->
+
+  <div>
+    <label for="age">Age</label>
+    <input type="number" name="age" id="age" ng-model="register.user.age" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="register.registerForm.age.$error" ng-show="(register.registerForm.$submitted || register.registerForm.age.$touched)">
+    <p ng-message="required">Your age is required.</p>
+  </div> -->
+
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" ng-model="register.user.password" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="register.registerForm.password.$error" ng-show="(register.registerForm.$submitted || register.registerForm.password.$touched)">
+    <p ng-message="required">Your password is required.</p>
+  </div> -->
+
+  <div>
+    <label for="passwordConfirmation">Password Confirmation</label>
+    <input type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="register.registerForm.passwordConfirmation.$error" ng-show="(register.registerForm.$submitted || register.registerForm.passwordConfirmation.$touched)">
+    <p ng-message="required">Your password confirmation is required.</p>
+  </div> -->
+
+  <!-- <div class="form-group">
+    <label for="base64"></label>
+    <input type="file" base64 name="base64" id="base64" ng-model="register.user.base64" required class="base64 form-control">
+  </div>
+  <div class="ng-message-error" ng-messages="register.registerForm.base64.$error" ng-show="(register.registerForm.$submitted)">
+    <p ng-message="required">An image is required.</p>
+  </div> -->
+  <button class="button">Register</button>
+</form>

@@ -27,7 +27,6 @@ function MainCtrl($rootScope, $state, $auth, User){
           vm.user = response.find(obj => obj.id === vm.currentUserId);
           if (!vm.user.group) vm.currentUserGroupId = null;
           if (vm.user.group) vm.currentUserGroupId = vm.user.group.id;
-
         });
     }
   });
