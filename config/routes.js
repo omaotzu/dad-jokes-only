@@ -1,6 +1,18 @@
 const router = require('express').Router();
 const auth = require('../controllers/auth');
+const jokes = require('../controllers/jokes');
 const users = require('../controllers/users');
+
+router.route('/jokes')
+  .get(jokes.index);
+
+router.route('/jokes/new')
+  .post(jokes.create);
+
+router.route('/jokes/:id')
+  .get(jokes.show)
+  .put(jokes.update)
+  .delete(jokes.delete);
 
 router.route('/users')
   .get(users.index);

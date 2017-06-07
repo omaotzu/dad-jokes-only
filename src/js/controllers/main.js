@@ -6,7 +6,10 @@ MainCtrl.$inject = ['$rootScope', '$state', '$auth'];
 function MainCtrl($rootScope, $state, $auth){
   const vm = this;
   vm.isAuthenticated = $auth.isAuthenticated;
-  vm.currentUserId = $auth.getPayload().userId;
+  if($auth.getPayload()){
+    vm.currentUserId = $auth.getPayload().userId;
+  }
+
 
   $rootScope.$on('error', (e, err) => {
     vm.message = err.data.message;

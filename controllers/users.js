@@ -1,6 +1,6 @@
 const User = require('../models/user');
 
-function indexUser(req, res, next) {
+function usersIndex(req, res, next) {
   User
     .find()
     .exec()
@@ -8,7 +8,7 @@ function indexUser(req, res, next) {
     .catch(next);
 }
 
-function showUser(req, res, next) {
+function usersShow(req, res, next) {
   User
     .findById(req.params.id)
     .exec()
@@ -19,7 +19,7 @@ function showUser(req, res, next) {
     .catch(next);
 }
 
-function updateUser(req, res, next) {
+function usersUpdate(req, res, next) {
   if(req.file) req.body.profileImage = req.file.filename;
 
   User
@@ -36,7 +36,7 @@ function updateUser(req, res, next) {
     .catch(next);
 }
 
-function deleteUser(req, res, next) {
+function usersDelete(req, res, next) {
   User
     .findById(req.params.id)
     .exec()
@@ -49,8 +49,8 @@ function deleteUser(req, res, next) {
 }
 
 module.exports = {
-  index: indexUser,
-  show: showUser,
-  update: updateUser,
-  delete: deleteUser
+  index: usersIndex,
+  show: usersShow,
+  update: usersUpdate,
+  delete: usersDelete
 };
