@@ -2,7 +2,8 @@ angular
   .module('dadJokesOnly')
   .controller('JokesIndexCtrl', JokesIndexCtrl)
   .controller('JokesNewCtrl', JokesNewCtrl)
-  .controller('JokesShowCtrl', JokesShowCtrl);
+  .controller('JokesShowCtrl', JokesShowCtrl)
+  .controller('JokesEditCtrl', JokesEditCtrl);
 
 JokesIndexCtrl.$inject = ['Joke'];
 function JokesIndexCtrl(Joke){
@@ -15,6 +16,8 @@ function JokesNewCtrl(Joke, $state, $auth){
   const vm = this;
   vm.joke = {};
   vm.joke.createdBy = $auth.getPayload().userId;
+
+
 
   function jokeCreate(){
     if(vm.jokesNewForm.$valid){
@@ -31,4 +34,19 @@ JokesShowCtrl.$inject = ['Joke', '$stateParams'];
 function JokesShowCtrl(Joke, $stateParams){
   const vm = this;
   vm.joke = Joke.get($stateParams);
+}
+
+JokesEditCtrl.$inject = ['Joke', '$stateParams', '$state'];
+function JokesEditCtrl(Joke, $stateParams, $state){
+  const vm = this;
+  vm.joke = Joke.get($stateParams);
+
+  function jokesUpdate(){
+    if(vm.jokesEditForm.$valid){
+      vm.joke
+        .$update();
+      $state.go('jokesShow', $stateParams);
+    }
+  }
+  vm.update = jokesUpdate;
 }

@@ -7,14 +7,12 @@ router.route('/jokes')
   .get(jokes.index)
   .post(jokes.create);
 
-// router.route('/jokes/new')
-
 
 router.route('/jokes/:id')
   .get(jokes.show)
   .put(jokes.update)
   .delete(jokes.delete);
-
+  
 router.route('/users')
   .get(users.index);
 

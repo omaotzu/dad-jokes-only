@@ -4,7 +4,7 @@
   <ul ng-repeat="joke in jokesIndex.all">
     <li>Created By: {{joke.createdBy}}</li>
     <li>Content: {{joke.content}}</li>
-    <li>Categories: <p ng-repeat="category in joke.categories"></p></li>
+    <li>Categories: {{joke.categories}}</li>
     <li>SFW: {{joke.sfw}}</li>
     <li>Rating: {{joke.rating}}</li>
     <li>For editing and comments head <a ui-sref="jokesShow({ id: joke.id })">Here</a></li>

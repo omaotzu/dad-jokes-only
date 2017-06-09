@@ -1,0 +1,30 @@
+<h1>New Joke</h1>
+
+<form name="jokesEdit.jokesEditForm" ng-submit="jokesEdit.update()" novalidate>
+  <div>
+    <label for="content">Content</label>
+    <input type="text" name="content" id="content" ng-model="jokesEdit.joke.content">
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="jokesEdit.jokesEditForm.content.$error" ng-show="(jokesEdit.jokesEditForm.$submitted || jokesEdit.jokesEditForm.content.$touched)">
+    <p ng-message="required">Gotta add a joke at least</p>
+  </div> -->
+
+  <div>
+    <label for="categories">Categories</label>
+    <input type="text" name="categories" id="categories" ng-model="jokesEdit.joke.categories">
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="jokesEdit.jokesEditForm.categories.$error" ng-show="(jokesEdit.jokesEditForm.$submitted || jokesEdit.jokesEditForm.categories.$touched)">
+    <p ng-message="required">At least one category is required.</p>
+
+  </div> -->
+
+  <div>
+    <label for="sfw">Safe for Work?</label>
+    <input type="text" name="sfw" id="sfw" ng-model="jokesEdit.joke.sfw">
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="jokesEdit.jokesEditForm.sfw.$error" ng-show="(jokesEdit.jokesEditForm.$submitted || jokesEdit.jokesEditForm.sfw.$touched)">
+    <p ng-message="required">Can I view this at work?</p>
+  </div> -->
+
+  <button class="button">Update</button>
+</form>

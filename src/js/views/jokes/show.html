@@ -4,8 +4,9 @@
   <ul>
     <li>Created By: {{jokesShow.joke.createdBy}}</li>
     <li>Content: {{jokesShow.joke.content}}</li>
-    <li>Categories: <p ng-repeat="category in jokesShow.joke.categories"></p></li>
+    <li>Categories:{{jokesShow.joke.categories}}</li>
     <li>SFW: {{jokesShow.joke.sfw}}</li>
     <li>Rating: {{jokesShow.joke.rating}}</li>
+    <li><a ui-sref="jokesEdit({ id: jokesShow.joke.id })"><button ng-if="main.isAuthenticated()">Edit</button></a></li>
   </ul>
 </div>

@@ -1,0 +1,69 @@
+<h2>Edit Profile</h2>
+
+<form name="usersEdit.usersEditForm" ng-submit="usersEdit.update()" novalidate>
+  <div>
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" ng-model="usersEdit.user.username" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="usersEdit.usersEditForm.username.$error" ng-show="(usersEdit.usersEditForm.$submitted || usersEdit.usersEditForm.username.$touched)">
+    <p ng-message="required">Your username is required.</p>
+  </div> -->
+
+  <div>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" ng-model="usersEdit.user.email" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="usersEdit.usersEditForm.email.$error" ng-show="(usersEdit.usersEditForm.$submitted || usersEdit.usersEditForm.email.$touched)">
+    <p ng-message="required">Your email is required.</p>
+    <p ng-message="email">A valid email is required.</p>
+  </div> -->
+
+  <div>
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" id="firstname" ng-model="usersEdit.user.firstname" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="usersEdit.usersEditForm.firstname.$error" ng-show="(usersEdit.usersEditForm.$submitted || usersEdit.usersEditForm.firstname.$touched)">
+    <p ng-message="required">Your first name is required.</p>
+  </div> -->
+
+  <div>
+    <label for="lastname">Surname</label>
+    <input type="text" name="lastname" id="lastname" ng-model="usersEdit.user.lastname" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="usersEdit.usersEditForm.lastname.$error" ng-show="(usersEdit.usersEditForm.$submitted || usersEdit.usersEditForm.lastname.$touched)">
+    <p ng-message="required">Your surname is required.</p>
+  </div> -->
+
+  <div>
+    <label for="age">Age</label>
+    <input type="number" name="age" id="age" ng-model="usersEdit.user.age" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="usersEdit.usersEditForm.age.$error" ng-show="(usersEdit.usersEditForm.$submitted || usersEdit.usersEditForm.age.$touched)">
+    <p ng-message="required">Your age is required.</p>
+  </div> -->
+
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" ng-model="usersEdit.user.password" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="usersEdit.usersEditForm.password.$error" ng-show="(usersEdit.usersEditForm.$submitted || usersEdit.usersEditForm.password.$touched)">
+    <p ng-message="required">Your password is required.</p>
+  </div> -->
+
+  <div>
+    <label for="passwordConfirmation">Password Confirmation</label>
+    <input type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="usersEdit.user.passwordConfirmation" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="usersEdit.usersEditForm.passwordConfirmation.$error" ng-show="(usersEdit.usersEditForm.$submitted || usersEdit.usersEditForm.passwordConfirmation.$touched)">
+    <p ng-message="required">Your password confirmation is required.</p>
+  </div> -->
+
+  <!-- <div class="form-group">
+    <label for="base64"></label>
+    <input type="file" base64 name="base64" id="base64" ng-model="usersEdit.user.base64" required class="base64 form-control">
+  </div>
+  <div class="ng-message-error" ng-messages="usersEdit.usersEditForm.base64.$error" ng-show="(usersEdit.usersEditForm.$submitted)">
+    <p ng-message="required">An image is required.</p>
+  </div> -->
+  <button class="button">Register</button>
+</form>
