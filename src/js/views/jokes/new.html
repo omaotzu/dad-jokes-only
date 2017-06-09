@@ -1,0 +1,39 @@
+<h1>New Joke</h1>
+
+
+content: {type: String, required: true},
+categories: [{type: String, required: true}],
+rating: {type: Number},
+sfw: {type: String, required: true},
+createdBy: {type: mongoose.Schema.ObjectId, ref: 'User'}
+
+
+
+<form name="jokesNew.jokesNewForm" ng-submit="jokesNew.create()" novalidate>
+  <div>
+    <label for="content">Content</label>
+    <input type="text" name="content" id="content" ng-model="jokesNew.joke.content" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="jokesNew.jokesNewForm.content.$error" ng-show="(jokesNew.jokesNewForm.$submitted || jokesNew.jokesNewForm.content.$touched)">
+    <p ng-message="required">Gotta add a joke at least</p>
+  </div> -->
+
+  <div>
+    <label for="categories">Categories</label>
+    <input type="text" name="categories" id="categories" ng-model="jokesNew.joke.categories" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="jokesNew.jokesNewForm.categories.$error" ng-show="(jokesNew.jokesNewForm.$submitted || jokesNew.jokesNewForm.categories.$touched)">
+    <p ng-message="required">At least one category is required.</p>
+
+  </div> -->
+
+  <div>
+    <label for="sfw">Safe for Work?</label>
+    <input type="text" name="sfw" id="sfw" ng-model="jokesNew.joke.sfw" required>
+  </div>
+  <!-- <div class="ng-message-error" ng-messages="jokesNew.jokesNewForm.sfw.$error" ng-show="(jokesNew.jokesNewForm.$submitted || jokesNew.jokesNewForm.sfw.$touched)">
+    <p ng-message="required">Can I view this at work?</p>
+  </div> -->
+
+  <button class="button">Create</button>
+</form>

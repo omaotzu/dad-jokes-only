@@ -4,10 +4,11 @@ const jokes = require('../controllers/jokes');
 const users = require('../controllers/users');
 
 router.route('/jokes')
-  .get(jokes.index);
-
-router.route('/jokes/new')
+  .get(jokes.index)
   .post(jokes.create);
+
+// router.route('/jokes/new')
+
 
 router.route('/jokes/:id')
   .get(jokes.show)

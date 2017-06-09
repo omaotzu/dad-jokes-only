@@ -10,10 +10,11 @@ function JokesIndexCtrl(Joke){
   vm.all = Joke.query();
 }
 
-JokesNewCtrl.$inject = ['Joke', '$stateparams','$state'];
-function JokesNewCtrl(Joke, $stateParams, $state){
+JokesNewCtrl.$inject = ['Joke','$state', '$auth'];
+function JokesNewCtrl(Joke, $state, $auth){
   const vm = this;
   vm.joke = {};
+  vm.joke.createdBy = $auth.getPayload().userId;
 
   function jokeCreate(){
     if(vm.jokesNewForm.$valid){
