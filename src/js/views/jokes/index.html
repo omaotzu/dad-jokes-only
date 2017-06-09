@@ -1,0 +1,19 @@
+<h1>Jokes Index</h1>
+
+content: {type: String, required: true},
+categories: [{type: String, required: true}],
+rating: {type: Number},
+sfw: {type: String, required: true},
+createdBy: {type: mongoose.Schema.ObjectId, ref: 'User'}
+
+
+<div>
+  <ul ng-repeat="joke in jokesIndex.all">
+    <li>Created By: {{joke.createdBy}}</li>
+    <li>Content: {{joke.content}}</li>
+    <li>Categories: <p ng-repeat="category in joke.categories"></p></li>
+    <li>SFW: {{joke.sfw}}</li>
+    <li>Rating: {{joke.rating}}</li>
+    <li>For editing and comments head <a ui-sref="jokesShow({ id: joke.id })">Here</a></li>
+  </ul>
+</div>

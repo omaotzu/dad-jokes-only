@@ -31,7 +31,22 @@ function Router($locationProvider, $stateProvider, $urlRouterProvider) {
       url: '/users/:id',
       templateUrl: 'js/views/users/show.html',
       controller: 'UsersShowCtrl as usersShow'
-    });
+    })
 
+    .state('jokesIndex', {
+      url: '/jokes',
+      templateUrl: 'js/views/jokes/index.html',
+      controller: 'JokesIndexCtrl as jokesIndex'
+    })
+    .state('jokesNew', {
+      url: '/jokes/new',
+      templateUrl: 'js/views/jokes/new.html',
+      controller: 'JokesNewCtrl as jokesNew'
+    })
+    .state('jokesShow', {
+      url: '/jokes/:id',
+      templateUrl: 'js/views/jokes/show.html',
+      controller: 'JokesShowCtrl as jokesShow'
+    });
   $urlRouterProvider.otherwise('/login');
 }

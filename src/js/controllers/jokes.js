@@ -10,7 +10,21 @@ function JokesIndexCtrl(Joke){
   vm.all = Joke.query();
 }
 
-JokesNewCtrl.$inject = ['']
+JokesNewCtrl.$inject = ['Joke', '$stateparams','$state'];
+function JokesNewCtrl(Joke, $stateParams, $state){
+  const vm = this;
+  vm.joke = {};
+
+  function jokeCreate(){
+    if(vm.jokesNewForm.$valid){
+      Joke
+        .save(vm.joke)
+        .$promise
+        .then(() => $state.go('jokesIndex'));
+    }
+  }
+  vm.create = jokeCreate;
+}
 
 JokesShowCtrl.$inject = ['Joke', '$stateParams'];
 function JokesShowCtrl(Joke, $stateParams){
