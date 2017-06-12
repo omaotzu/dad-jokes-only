@@ -10,17 +10,29 @@
   </div> -->
 
   <div>
-    <label for="categories">Categories</label>
-    <input type="text" name="categories" id="categories" ng-model="jokesNew.joke.categories" required>
+    <label for="categories">Categories:</label>
+    <div ng-repeat="cat in jokesNew.cats" name="categories" id="categories" ng-model="jokesNew.selectedCats">
+      <input type="checkbox" value="{{cat}}">{{cat}}
+    </div>
   </div>
+
+
+
   <!-- <div class="ng-message-error" ng-messages="jokesNew.jokesNewForm.categories.$error" ng-show="(jokesNew.jokesNewForm.$submitted || jokesNew.jokesNewForm.categories.$touched)">
     <p ng-message="required">At least one category is required.</p>
 
   </div> -->
+  <p>Please feel free to add a category <a href="#">here</a> if its not in the dropdown</p>
+
+
+
 
   <div>
     <label for="sfw">Safe for Work?</label>
-    <input type="text" name="sfw" id="sfw" ng-model="jokesNew.joke.sfw" required>
+    <select name="sfw" id="sfw" ng-model="jokesNew.joke.sfw" required>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
   </div>
   <!-- <div class="ng-message-error" ng-messages="jokesNew.jokesNewForm.sfw.$error" ng-show="(jokesNew.jokesNewForm.$submitted || jokesNew.jokesNewForm.sfw.$touched)">
     <p ng-message="required">Can I view this at work?</p>

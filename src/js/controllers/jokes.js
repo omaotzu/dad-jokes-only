@@ -14,18 +14,28 @@ function JokesIndexCtrl(Joke){
 JokesNewCtrl.$inject = ['Joke','$state', '$auth'];
 function JokesNewCtrl(Joke, $state, $auth){
   const vm = this;
+  vm.selectedCats  = [];
+  vm.cats = [
+    'Animal',
+    'Cutural',
+    'News/Politics',
+    'Religion',
+    'Sexual',
+    'Work'
+  ];
+
   vm.joke = {};
   vm.joke.createdBy = $auth.getPayload().userId;
 
-
-
   function jokeCreate(){
+    console.log(vm.selectedCats);
     if(vm.jokesNewForm.$valid){
       Joke
         .save(vm.joke)
         .$promise
         .then(() => $state.go('jokesIndex'));
     }
+    vm.joke.categoriesSelected = [];
   }
   vm.create = jokeCreate;
 }
@@ -44,7 +54,9 @@ function JokesEditCtrl(Joke, $stateParams, $state){
   function jokesUpdate(){
     if(vm.jokesEditForm.$valid){
       vm.joke
-        .$update();
+      .$update();
+    }
+    if(vm.joke.$update){
       $state.go('jokesShow', $stateParams);
     }
   }
