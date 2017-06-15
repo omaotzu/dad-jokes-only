@@ -32,11 +32,14 @@ function jokesUpdate(req, res, next) {
     .exec()
     .then((joke) => {
       if(!joke) return res.notFound();
+
       for (const field in req.body){
         joke[field] = req.body[field];
       }
+
       return joke.save();
     })
+    .then((joke) => res.json(joke))
     .catch(next);
 }
 

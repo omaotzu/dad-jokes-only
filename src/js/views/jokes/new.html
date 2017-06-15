@@ -11,7 +11,7 @@
 
   <div>
     <label for="categories">Categories:</label>
-    <div ng-repeat="cat in jokesNew.cats" name="categories" id="categories" ng-model="jokesNew.selectedCats">
+    <div ng-repeat="cat in jokesNew.cats" name="categories" id="categories" ng-model="jokesNew.selectedCats" ng-click="jokesNew.addCategory(category)">
       <input type="checkbox" value="{{cat}}">{{cat}}
     </div>
   </div>

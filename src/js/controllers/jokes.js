@@ -25,10 +25,16 @@ function JokesNewCtrl(Joke, $state, $auth){
   ];
 
   vm.joke = {};
+  vm.joke.categories = [];
   vm.joke.createdBy = $auth.getPayload().userId;
 
+  function addCategory(category) {
+    vm.joke.categories.push(category);
+  }
+  vm.addCategory = addCategory;
+
   function jokeCreate(){
-    console.log(vm.selectedCats);
+    console.log(vm.joke.categories);
     if(vm.jokesNewForm.$valid){
       Joke
         .save(vm.joke)
@@ -49,15 +55,17 @@ function JokesShowCtrl(Joke, $stateParams){
 JokesEditCtrl.$inject = ['Joke', '$stateParams', '$state'];
 function JokesEditCtrl(Joke, $stateParams, $state){
   const vm = this;
+
+
+
   vm.joke = Joke.get($stateParams);
 
   function jokesUpdate(){
     if(vm.jokesEditForm.$valid){
+
       vm.joke
-      .$update();
-    }
-    if(vm.joke.$update){
-      $state.go('jokesShow', $stateParams);
+      .$update()
+      .then(() => $state.go('jokesShow', $stateParams));
     }
   }
   vm.update = jokesUpdate;
