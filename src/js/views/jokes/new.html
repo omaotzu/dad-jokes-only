@@ -10,13 +10,18 @@
   </div> -->
 
   <div>
-    <label for="categories">Categories:</label>
+    <!-- <label for="categories">Categories:</label>
     <div ng-repeat="cat in jokesNew.category" name="categories" id="categories" ng-model="jokesNew.selectedCats">
       <div ng-click="jokesNew.addCategory(cat)">
         <input type="checkbox" value="{{cat.name}}">{{cat.name}}
       </div>
-    </div>
+    </div> -->
+    <label ng-repeat="cat in jokesNew.category">
+        <input type="checkbox" name="categories" id="categories" checklist-model="jokesNew.selectedCats" checklist-value="cat.name">{{cat.name}}
+    </label>
   </div>
+
+
 
 
 

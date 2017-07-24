@@ -1,2 +1,2 @@
 angular
-  .module('dadJokesOnly', ['ui.router', 'ngResource', 'satellizer']);
+  .module('dadJokesOnly', ['ui.router', 'ngResource', 'satellizer', 'checklist-model']);

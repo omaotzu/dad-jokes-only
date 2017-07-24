@@ -50,10 +50,17 @@ JokesEditCtrl.$inject = ['Joke', 'Category', '$stateParams', '$state'];
 function JokesEditCtrl(Joke, Category, $stateParams, $state){
   const vm = this;
   vm.joke = Joke.get($stateParams);
+  vm.category = Category.query();
 
-
-
-
+  function addCategory(category) {
+    if(!vm.joke.categories.includes(category.name)){
+      vm.joke.categories.push(category.name);
+    }else if(vm.joke.categories.includes(category.name)){
+      const index = vm.joke.categories.indexOf(category.name);
+      vm.joke.categories.splice(index, 1);
+    }
+  }
+  vm.addCategory = addCategory;
 
   function jokesUpdate(){
     if(vm.jokesEditForm.$valid){

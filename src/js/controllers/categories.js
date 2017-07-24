@@ -9,6 +9,13 @@ function CategoriesIndexCtrl(Category, $state){
   const vm = this;
   vm.all = Category.query();
 
+  function categoriesUpdate(category){
+    category
+    .$update()
+    .then(() => $state.go('categoriesIndex'));
+  }
+  vm.update = categoriesUpdate;
+
   function categoriesDelete(category){
     category
       .$remove()

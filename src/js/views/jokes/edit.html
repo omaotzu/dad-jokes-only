@@ -10,9 +10,22 @@
   </div> -->
 
   <div>
-    <label for="categories">Categories</label>
-    <input type="text" name="categories" id="categories" ng-model="jokesEdit.joke.categories">
+
+    <label ng-repeat="cat in jokesEdit.category">
+      <input type="checkbox" name="categories"  checklist-model="jokesEdit.joke.categories" checklist-value="cat.name">{{cat.name}}
+    </label>
+    <!-- <label for="categories">Categories</label>
+    <div ng-repeat="cat in jokesEdit.category" name="categories" id="categories" ng-model="jokesEdit.joke.categories">
+      <div ng-click="jokesEdit.addCategory(cat)">
+        <input type="checkbox" value="{{cat.name}}">{{cat.name}}
+      </div>
+    </div> -->
   </div>
+
+
+
+
+
   <!-- <div class="ng-message-error" ng-messages="jokesEdit.jokesEditForm.categories.$error" ng-show="(jokesEdit.jokesEditForm.$submitted || jokesEdit.jokesEditForm.categories.$touched)">
     <p ng-message="required">At least one category is required.</p>
 
