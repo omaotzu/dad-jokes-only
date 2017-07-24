@@ -22,6 +22,7 @@ function Router($locationProvider, $stateProvider, $urlRouterProvider) {
       templateUrl: 'js/views/sessions/login.html',
       controller: 'LoginCtrl as login'
     })
+
     .state('usersIndex', {
       url: '/users',
       templateUrl: 'js/views/users/index.html',
@@ -37,7 +38,7 @@ function Router($locationProvider, $stateProvider, $urlRouterProvider) {
       templateUrl: 'js/views/users/edit.html',
       controller: 'UsersEditCtrl as usersEdit'
     })
-    
+
     .state('jokesIndex', {
       url: '/jokes',
       templateUrl: 'js/views/jokes/index.html',
@@ -57,6 +58,17 @@ function Router($locationProvider, $stateProvider, $urlRouterProvider) {
       url: '/jokes/:id/edit',
       templateUrl: 'js/views/jokes/edit.html',
       controller: 'JokesEditCtrl as jokesEdit'
+    })
+
+    .state('categoriesIndex', {
+      url: '/categories',
+      templateUrl: 'js/views/categories/index.html',
+      controller: 'CategoriesIndexCtrl as categoriesIndex'
+    })
+    .state('categoriesNew', {
+      url: '/categories/new',
+      templateUrl: 'js/views/categories/new.html',
+      controller: 'CategoriesNewCtrl as categoriesNew'
     });
   $urlRouterProvider.otherwise('/login');
 }

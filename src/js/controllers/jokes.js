@@ -11,37 +11,31 @@ function JokesIndexCtrl(Joke){
   vm.all = Joke.query();
 }
 
-JokesNewCtrl.$inject = ['Joke','$state', '$auth'];
-function JokesNewCtrl(Joke, $state, $auth){
+JokesNewCtrl.$inject = ['Joke', 'Category','$state', '$auth'];
+function JokesNewCtrl(Joke, Category, $state, $auth){
   const vm = this;
-  vm.selectedCats  = [];
-  vm.cats = [
-    'Animal',
-    'Cutural',
-    'News/Politics',
-    'Religion',
-    'Sexual',
-    'Work'
-  ];
-
   vm.joke = {};
+  vm.category = Category.query();
   vm.joke.categories = [];
   vm.joke.createdBy = $auth.getPayload().userId;
 
   function addCategory(category) {
-    vm.joke.categories.push(category);
+    if(!vm.joke.categories.includes(category.name)){
+      vm.joke.categories.push(category.name);
+    }else if(vm.joke.categories.includes(category.name)){
+      const index = vm.joke.categories.indexOf(category.name);
+      vm.joke.categories.splice(index, 1);
+    }
   }
   vm.addCategory = addCategory;
 
   function jokeCreate(){
-    console.log(vm.joke.categories);
     if(vm.jokesNewForm.$valid){
       Joke
         .save(vm.joke)
         .$promise
         .then(() => $state.go('jokesIndex'));
     }
-    vm.joke.categoriesSelected = [];
   }
   vm.create = jokeCreate;
 }
@@ -52,17 +46,17 @@ function JokesShowCtrl(Joke, $stateParams){
   vm.joke = Joke.get($stateParams);
 }
 
-JokesEditCtrl.$inject = ['Joke', '$stateParams', '$state'];
-function JokesEditCtrl(Joke, $stateParams, $state){
+JokesEditCtrl.$inject = ['Joke', 'Category', '$stateParams', '$state'];
+function JokesEditCtrl(Joke, Category, $stateParams, $state){
   const vm = this;
-
-
-
   vm.joke = Joke.get($stateParams);
+
+
+
+
 
   function jokesUpdate(){
     if(vm.jokesEditForm.$valid){
-
       vm.joke
       .$update()
       .then(() => $state.go('jokesShow', $stateParams));

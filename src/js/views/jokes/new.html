@@ -11,8 +11,10 @@
 
   <div>
     <label for="categories">Categories:</label>
-    <div ng-repeat="cat in jokesNew.cats" name="categories" id="categories" ng-model="jokesNew.selectedCats" ng-click="jokesNew.addCategory(category)">
-      <input type="checkbox" value="{{cat}}">{{cat}}
+    <div ng-repeat="cat in jokesNew.category" name="categories" id="categories" ng-model="jokesNew.selectedCats">
+      <div ng-click="jokesNew.addCategory(cat)">
+        <input type="checkbox" value="{{cat.name}}">{{cat.name}}
+      </div>
     </div>
   </div>
 
@@ -22,7 +24,7 @@
     <p ng-message="required">At least one category is required.</p>
 
   </div> -->
-  <p>Please feel free to add a category <a href="#">here</a> if its not in the dropdown</p>
+  <p>Please feel free to add a category <a ui-sref="categoriesNew">here</a> if its not in the dropdown</p>
 
 
 

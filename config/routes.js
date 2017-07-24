@@ -2,17 +2,28 @@ const router = require('express').Router();
 const auth = require('../controllers/auth');
 const jokes = require('../controllers/jokes');
 const users = require('../controllers/users');
+const categories = require('../controllers/categories');
 
 router.route('/jokes')
   .get(jokes.index)
   .post(jokes.create);
 
-
 router.route('/jokes/:id')
   .get(jokes.show)
   .put(jokes.update)
   .delete(jokes.delete);
-  
+
+
+router.route('/categories')
+  .get(categories.index)
+  .post(categories.create);
+
+
+router.route('/categories/:id')
+  .get(categories.show)
+  .put(categories.update)
+  .delete(categories.delete);
+
 router.route('/users')
   .get(users.index);
 
