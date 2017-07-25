@@ -3,12 +3,14 @@ const Joke = require('../models/joke');
 function jokesIndex(req, res, next){
   Joke
     .find()
+    .populate('createdBy')
     .exec()
     .then((jokes) => res.json(jokes))
     .catch(next);
 }
 
 function jokesCreate(req, res, next){
+  req.body.createdBy = req.user;
   Joke
     .create(req.body)
     .then((joke) => res.status(201).json(joke))

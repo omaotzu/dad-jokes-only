@@ -16,18 +16,7 @@ function JokesNewCtrl(Joke, Category, $state, $auth){
   const vm = this;
   vm.joke = {};
   vm.category = Category.query();
-  vm.joke.categories = [];
-  vm.joke.createdBy = $auth.getPayload().userId;
-
-  function addCategory(category) {
-    if(!vm.joke.categories.includes(category.name)){
-      vm.joke.categories.push(category.name);
-    }else if(vm.joke.categories.includes(category.name)){
-      const index = vm.joke.categories.indexOf(category.name);
-      vm.joke.categories.splice(index, 1);
-    }
-  }
-  vm.addCategory = addCategory;
+  // vm.joke.createdBy = $auth.getPayload().userId;
 
   function jokeCreate(){
     if(vm.jokesNewForm.$valid){
@@ -51,16 +40,6 @@ function JokesEditCtrl(Joke, Category, $stateParams, $state){
   const vm = this;
   vm.joke = Joke.get($stateParams);
   vm.category = Category.query();
-
-  function addCategory(category) {
-    if(!vm.joke.categories.includes(category.name)){
-      vm.joke.categories.push(category.name);
-    }else if(vm.joke.categories.includes(category.name)){
-      const index = vm.joke.categories.indexOf(category.name);
-      vm.joke.categories.splice(index, 1);
-    }
-  }
-  vm.addCategory = addCategory;
 
   function jokesUpdate(){
     if(vm.jokesEditForm.$valid){

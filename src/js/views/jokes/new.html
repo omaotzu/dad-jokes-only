@@ -17,7 +17,7 @@
       </div>
     </div> -->
     <label ng-repeat="cat in jokesNew.category">
-        <input type="checkbox" name="categories" id="categories" checklist-model="jokesNew.selectedCats" checklist-value="cat.name">{{cat.name}}
+        <input type="checkbox" name="categories" id="categories" checklist-model="jokesNew.joke.categories" checklist-value="cat.name">{{cat.name}}
     </label>
   </div>
 

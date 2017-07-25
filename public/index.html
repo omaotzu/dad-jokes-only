@@ -19,7 +19,9 @@
           <li ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></li>
           <li ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></li>
           <li><a ui-sref="jokesIndex">Jokes</a></li>
-          <li ng-if="main.isAuthenticated()"><a ui-sref="jokesNew">Add a New Joke</a></li>
+          <li ng-if="main.isAuthenticated()"><a ui-sref="jokesNew">New Joke</a></li>
+          <li><a ui-sref="categoriesIndex">Categories</a></li>
+          <li ng-if="main.isAuthenticated()"><a ui-sref="categoriesNew">New Category</a></li>
           <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="/">Logout</a></li>
         </ul>
       </nav>
