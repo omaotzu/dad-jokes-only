@@ -10,7 +10,6 @@ function jokesIndex(req, res, next){
 }
 
 function jokesCreate(req, res, next){
-  req.body.createdBy = req.user;
   Joke
     .create(req.body)
     .then((joke) => res.status(201).json(joke))

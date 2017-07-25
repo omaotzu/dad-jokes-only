@@ -1,8 +1,7 @@
 <h1>Jokes Index</h1>
-
 <div>
   <ul ng-repeat="joke in jokesIndex.all">
-    <li>Created By: {{joke.createdBy}}</li>
+    <li>Created By: {{joke.createdBy.username}}</li>
     <li>Content: {{joke.content}}</li>
     <li>Categories: {{joke.categories}}</li>
     <li>SFW: {{joke.sfw}}</li>

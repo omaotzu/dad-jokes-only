@@ -16,7 +16,7 @@ function JokesNewCtrl(Joke, Category, $state, $auth){
   const vm = this;
   vm.joke = {};
   vm.category = Category.query();
-  // vm.joke.createdBy = $auth.getPayload().userId;
+  vm.joke.createdBy = $auth.getPayload().userId;
 
   function jokeCreate(){
     if(vm.jokesNewForm.$valid){
